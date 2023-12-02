@@ -1,5 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  TASK LIST CONTENT
+  <a href="{% url 'todolist:create-task' %}">Create task</a>
+  {% if task_list %}
+    {% for task in task_list %}
+      <ul>
+        <li>
+          {{ task.content }}
+          {% if task.completed == True %}
+            Completed
+          {% else %}
+            Underway
+          {% endif %}
+        </li>
+        <li>Created: {{ task.datetime }}</li>
+        <li>Complete before: {{ task.deadline }}</li>
+        <li>Tags: {% for tag in task.tags.all %}
+          {{ tag.name }}
+          {% endfor %}
+        </li>
+      </ul>
+    {% endfor %}
+  {% endif %}
 {% endblock %}
