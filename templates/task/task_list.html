@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <a href="{% url 'todolist:create-task' %}">Create task</a>
+  <a href="{% url 'task:create-task' %}">Create task</a>
   {% if task_list %}
     {% for task in task_list %}
       <ul>
@@ -23,7 +23,16 @@
           {{ tag.name }}
           {% endfor %}
         </li>
-        <a href="{% url 'todolist:update-task' task.id %}">Update</a>
+        <li>
+          <a href="{% url 'task:update-task' task.id %}">Update</a>
+          <a href="{% url 'task:delete-task' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+          <form action="{% url 'task:switch-status-task' task.id %}" method="post" class="btn-group">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm {% if task.completed %}btn-secondary{% else %}btn-success{% endif %}">
+              {% if task.completed %}Cancel{% else %}Confirm{% endif %}
+            </button>
+          </form>
+        </li>
       </ul>
     {% endfor %}
   {% endif %}
