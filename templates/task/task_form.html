@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h1>{{ object|yesno:"Update,Create" }} task</h1>
   <form action="" method="POST">
     {% csrf_token %}
     {{ form|crispy }}
-    <input type="submit" value="Create task">
+    {% if object %}
+      <input type="submit" value="Create task">
+    {% else %}
+      <input type="submit" value="Update task">
+    {% endif %}
   </form>
 {% endblock %}
