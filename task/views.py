@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from task.models import Task
+from task.models import Task, Tag
 
 
 class TaskListView(generic.ListView):
@@ -30,6 +30,27 @@ class TaskDeleteView(generic.DeleteView):
     model = Task
     template_name = "task/task_confirm_delete.html"
     success_url = reverse_lazy("task:task-list")
+
+
+class TagListView(generic.ListView):
+    model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("task:list-tag")
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = "__all__"
+    success_url = reverse_lazy("task:list-tag")
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy("task:list-tag")
 
 
 def toggle_task_completion(request, pk: int):
