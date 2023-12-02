@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -27,4 +28,12 @@ class TaskUpdateView(generic.UpdateView):
 
 class TaskDeleteView(generic.DeleteView):
     model = Task
+    template_name = "task/task_confirm_delete.html"
     success_url = reverse_lazy("task:task-list")
+
+
+def toggle_task_completion(request, pk: int):
+    task = Task.objects.get(id=pk)
+    task.completed = not task.completed
+    task.save()
+    return redirect("task:task-list")
