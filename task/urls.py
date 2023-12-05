@@ -35,26 +35,26 @@ urlpatterns = [
         name="toggle-task-completion"
     ),
     path(
-        "task/",
+        "tags/",
         TagListView.as_view(),
         name="tag-list"
     ),
     path(
-        "task/create_tag/",
+        "tags/create_tag/",
         TagCreateView.as_view(),
         name="create-tag"
     ),
     path(
-        "task/<int:pk>/update/",
+        "tags/<int:pk>/update/",
         TagUpdateView.as_view(),
         name="update-tag"
     ),
     path(
-        "task/<int:pk>/delete/",
+        "tags/<int:pk>/delete/",
         TagDeleteView.as_view(),
         name="delete-tag"
     ),
 ]
 
 
-app_name = "todo_list"
+app_name = "task"

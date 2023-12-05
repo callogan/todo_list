@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Delete tag?</h3>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-gradient-danger" value="Yes">
+    <a class="btn bg-gradient-primary mx-4" href="{% url 'task:tag-list' %}">Cancel</a>
+  </form>
+{% endblock %}
