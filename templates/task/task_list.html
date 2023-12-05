@@ -2,38 +2,38 @@
 
 {% block content %}
   <a href="{% url 'task:create-task' %}">Create task</a>
-  {% if task_list %}
-    {% for task in task_list %}
-      <ul>
-        <li>
-          {{ task.content }}
-          {% if task.completed == True %}
-            Completed
-          {% else %}
-            Underway
-          {% endif %}
-        </li>
-        <li>Created: {{ task.datetime }}</li>
-        <li>
-          {% if task.deadline %}
-            Complete by: {{ task.deadline }}
-          {% endif %}
-        </li>
-        <li>Tags: {% for tag in task.tags.all %}
-          {{ tag.name }}
-          {% endfor %}
-        </li>
-        <li>
-          <a href="{% url 'task:update-task' task.id %}">Update</a>
-          <a href="{% url 'task:delete-task' task.id %}" class="btn btn-sm btn-danger">Delete</a>
-          <form action="{% url 'task:switch-status-task' task.id %}" method="post" class="btn-group">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-sm {% if task.completed %}btn-secondary{% else %}btn-success{% endif %}">
-              {% if task.completed %}Cancel{% else %}Confirm{% endif %}
-            </button>
-          </form>
-        </li>
-      </ul>
-    {% endfor %}
-  {% endif %}
+<!--  {% if task_list %}-->
+<!--    {% for task in task_list %}-->
+<!--      <ul>-->
+<!--        <li>-->
+<!--          {{ task.content }}-->
+<!--          {% if task.completed == True %}-->
+<!--            Completed-->
+<!--          {% else %}-->
+<!--            Underway-->
+<!--          {% endif %}-->
+<!--        </li>-->
+<!--        <li>Created: {{ task.datetime }}</li>-->
+<!--        <li>-->
+<!--          {% if task.deadline %}-->
+<!--            Complete by: {{ task.deadline }}-->
+<!--          {% endif %}-->
+<!--        </li>-->
+<!--        <li>Tags: {% for tag in task.tags.all %}-->
+<!--          {{ tag.name }}-->
+<!--          {% endfor %}-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="{% url 'task:update-task' task.id %}">Update</a>-->
+<!--          <a href="{% url 'task:delete-task' task.id %}" class="btn btn-sm btn-danger">Delete</a>-->
+<!--          <form action="{% url 'task:switch-status-task' task.id %}" method="post" class="btn-group">-->
+<!--            {% csrf_token %}-->
+<!--            <button type="submit" class="btn btn-sm {% if task.completed %}btn-secondary{% else %}btn-success{% endif %}">-->
+<!--              {% if task.completed %}Cancel{% else %}Confirm{% endif %}-->
+<!--            </button>-->
+<!--          </form>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    {% endfor %}-->
+<!--  {% endif %}-->
 {% endblock %}

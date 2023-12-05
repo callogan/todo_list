@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-g-wv0v9#!**ls3qv)!cm7dt!hlo2b61(+7cc3+*^_%_f82*(&q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "todo_list",
+    "task",
     "debug_toolbar",
     "crispy_bootstrap4",
     "crispy_forms",
@@ -59,7 +59,7 @@ ROOT_URLCONF = "todo_list.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
