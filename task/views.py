@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
+from task.forms import TaskCreateForm
 from task.models import Task, Tag
 
 
@@ -10,12 +11,11 @@ class TaskListView(generic.ListView):
     context_object_name = "task_list"
     template_name = "task/task_list.html"
     queryset = Task.objects.prefetch_related("tags")
-    # print(queryset)
 
 
 class TaskCreateView(generic.CreateView):
     model = Task
-    fields = "__all__"
+    form_class = TaskCreateForm
     template_name = "task/task_form.html"
     success_url = reverse_lazy("task:task-list")
 
