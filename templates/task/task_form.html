@@ -9,11 +9,8 @@
     <form action="" method="POST">
       {% csrf_token %}
       {{ form|crispy }}
-      {% if object %}
-        <input type="submit" value="Update task">
-      {% else %}
-        <input type="submit" value="Create task">
-      {% endif %}
+      <input type="submit" value="Submit" class="btn btn-success">
+      <a href="{% url 'task:task-list' %}" class="btn btn-danger">Cancel</a>
     </form>
   </div>
 {% endblock %}
