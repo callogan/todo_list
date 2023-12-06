@@ -1,11 +1,14 @@
 from django import forms
-from django.forms import DateTimeInput
 from task.models import Task, Tag
+
+
+class DateTimePickerInput(forms.DateTimeInput):
+    input_type = 'datetime-local'
 
 
 class TaskCreateForm(forms.ModelForm):
     deadline = forms.DateTimeField(
-        required=False, widget=DateTimeInput(attrs={"type": "datetime-local"})
+        required=False, widget=DateTimePickerInput
     )
     tags = forms.ModelMultipleChoiceField(
         queryset=Tag.objects.all(),
