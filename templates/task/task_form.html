@@ -2,14 +2,18 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} task</h1>
-  <form action="" method="POST">
-    {% csrf_token %}
-    {{ form|crispy }}
-    {% if object %}
-      <input type="submit" value="Create task">
-    {% else %}
-      <input type="submit" value="Update task">
-    {% endif %}
-  </form>
+  <div class="mt-5">
+    <h1>{{ object|yesno:"Update,Create" }} task</h1>
+  </div>
+  <div class="mb-5">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      {% if object %}
+        <input type="submit" value="Update task">
+      {% else %}
+        <input type="submit" value="Create task">
+      {% endif %}
+    </form>
+  </div>
 {% endblock %}

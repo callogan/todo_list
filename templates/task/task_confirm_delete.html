@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Delete task?</h3>
+  <div class="mt-5">
+    <h3>Delete task?</h3>
+  </div>
   <form action="" method="post">
     {% csrf_token %}
     <input type="submit" value="Confirm deletion" class="btn bg-gradient-success mx-auto">

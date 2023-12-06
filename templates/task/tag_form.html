@@ -4,7 +4,7 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      <div class="col-md-8 offset-md-2">
+      <div class="col-md-8 offset-md-2 mt-5">
         <h1>{{ object|yesno:"Update,Create" }} tag</h1>
         <form action="" method="POST">
           {% csrf_token %}
@@ -12,7 +12,7 @@
              {{ form|crispy }}
           </div>
           <button type="submit" class="btn btn-gradient-primary">{{ object|yesno:"Update,Create" }}</button>
-          <a class="btn bg-gradient-success mx-4" href="{% url 'task:tag-list' %}">Back</a>
+          <a class="btn bg-gradient-success mx-4" href="{% url 'task:tag-list' %}">Cancel</a>
         </form>
       </div>
     </div>
