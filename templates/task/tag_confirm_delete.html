@@ -6,7 +6,7 @@
   </div>
   <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Confirm deletion" class="btn btn-danger">
+    <input type="submit" value="Confirm" class="btn btn-danger">
     <a href="{% url 'task:tag-list' %}" class="btn btn-success">Cancel</a>
   </form>
 {% endblock %}
