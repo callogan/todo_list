@@ -11,8 +11,8 @@
           <div class="form-group">
              {{ form|crispy }}
           </div>
-          <button type="submit" class="btn btn-gradient-primary">{{ object|yesno:"Update,Create" }}</button>
-          <a class="btn bg-gradient-success mx-4" href="{% url 'task:tag-list' %}">Cancel</a>
+          <input type="submit" value="Submit" class="btn btn-success">
+          <a href="{% url 'task:tag-list' %}" class="btn btn-danger" role="button">Cancel</a>
         </form>
       </div>
     </div>
