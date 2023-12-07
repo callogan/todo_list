@@ -13,16 +13,20 @@ from task.views import (
 )
 
 urlpatterns = [
-    path("", TaskListView.as_view(), name="task-list"),
+    path(
+        "",
+        TaskListView.as_view(),
+        name="task-list",
+    ),
     path(
         "task/create-task/",
         TaskCreateView.as_view(),
-        name='create-task'
+        name="create-task"
     ),
     path(
         "task/<int:pk>/update/",
         TaskUpdateView.as_view(),
-        name='update-task'
+        name="update-task"
     ),
     path(
         "task/<int:pk>/delete/",
@@ -55,6 +59,5 @@ urlpatterns = [
         name="delete-tag"
     ),
 ]
-
 
 app_name = "task"
