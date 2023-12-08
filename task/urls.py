@@ -16,7 +16,7 @@ urlpatterns = [
     path(
         "",
         TaskListView.as_view(),
-        name="task-list",
+        name="task-list"
     ),
     path(
         "task/create-task/",
@@ -31,7 +31,7 @@ urlpatterns = [
     path(
         "task/<int:pk>/delete/",
         TaskDeleteView.as_view(),
-        name="delete-task",
+        name="delete-task"
     ),
     path(
         "task/<int:pk>/toggle_completion/",
